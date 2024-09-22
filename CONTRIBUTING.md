@@ -1,6 +1,6 @@
 # Contributing to this repository.
 
-Thank you for your interest in contributing to the project We appreciate your willingness to enhance this project, which aims to provide robust security measures for Linux servers* in alignment with the Security Technical Implementation Guides (STIGs), Security Requirements Guides (SRGs), and NIST 800-53 practices.
+Thank you for your interest in contributing to the project We appreciate your willingness to enhance this project, which aims to provide robust security measures for Linux based servers* in alignment with the Security Technical Implementation Guides (STIGs), Security Requirements Guides (SRGs), and NIST 800-53 practices.
 
 This document outlines the guidelines to help you contribute effectively and provide a collaborative environment.
 
@@ -114,4 +114,4 @@ By contributing to this project, you agree that your contributions will be licen
 
 ---
 
-Thank you for contributing to the project! Your contributions can help to create a more secure environment for Linux based* servers, ensuring compliance with essential security frameworks.
+Thank you for contributing to the project! Your contributions can help to create a more secure environment for Linux based* servers for everyone, ensuring compliance with essential security frameworks.
