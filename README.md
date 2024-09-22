@@ -46,5 +46,10 @@ This playbook is provided as a starting point for security hardening and complia
 
 **Note:** This playbook is an example and should be tailored to **your** specific needs and environment. You will need to adjust the roles, tasks, and parameters based on **your** unique security requirements. 
 
-You will need to modify the IP addresses, usernames, private key paths, and other parameters according to your environment, thought you likely shouldn't be using this. 
+You will need to modify the IP addresses, usernames, private key paths, and other parameters according to your environment, though you likely shouldn't be using this. 
 
+
+
+# Warning
+
+**By cloning, using, or implementing this code, you acknowledge and accept full responsibility for any consequences that may arise. The authors of this code expressly disclaim all liability for damages, losses, or unforeseen circumstances that may result from its use. You agree that you bear all risks associated with this code and agree to indemnify and hold harmless the authors from any claims, damages, or liabilities arising from your use of this code.**
