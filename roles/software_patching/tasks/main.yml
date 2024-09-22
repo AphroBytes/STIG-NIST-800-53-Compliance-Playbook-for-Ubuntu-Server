@@ -1,0 +1,12 @@
+- name: Update package lists
+  apt:
+    update_cache: yes
+- name: Upgrade packages
+  apt:
+    upgrade: yes
+- name: Install security updates
+  apt:
+    name: '*'
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600 

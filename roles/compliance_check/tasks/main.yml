@@ -1,0 +1,69 @@
+- name: Check password policy compliance
+  shell: "grep 'PASS_MIN_LEN' /etc/login.defs | awk '{print $3}'"
+  register: password_min_length_result
+- name: Check account lockout compliance
+  shell: "grep 'root soft -login' /etc/security/limits.conf | awk '{print $3}'"
+  register: account_lockout_attempts_result
+- name: Check audit logging compliance
+  shell: "systemctl status auditd | grep 'active (running)'"
+  register: auditd_status_result
+- name: Check file permissions compliance
+  stat:
+    path: /root
+  register: root_permissions_result
+- name: Check firewall compliance
+  shell: "ufw status | grep '22/tcp'"
+  register: ufw_ssh_status_result
+- name: Check service configuration compliance
+  shell: "systemctl status cups | grep 'inactive (dead)'"
+  register: cups_status_result
+- name: Check software patching compliance
+  apt:
+    update_cache: yes
+    name: '*'
+    state: latest
+  register: patching_status_result
+- name: Check hardening compliance
+  shell: "grep 'PermitRootLogin' /etc/ssh/sshd_config | awk '{print $2}'"
+  register: root_login_result
+- name: Check hardening compliance
+  shell: "grep 'PasswordAuthentication' /etc/ssh/sshd_config | awk '{print $2}'"
+  register: password_authentication_result
+- name: Check hardening compliance
+  shell: "grep 'X11Forwarding' /etc/ssh/sshd_config | awk '{print $2}'"
+  register: x11_forwarding_result
+- name: Check hardening compliance
+  shell: "grep 'AllowTcpForwarding' /etc/ssh/sshd_config | awk '{print $2}'"
+  register: tcp_forwarding_result
+- name: Check hardening compliance
+  shell: "grep 'Banner' /etc/ssh/sshd_config | awk '{print $2}'"
+  register: ssh_banner_result
+- name: Check hardening compliance
+  shell: "grep 'AllowUsers' /etc/ssh/sshd_config | awk '{print $2}'"
+  register: allowed_users_result
+- debug:
+    msg: "Password policy compliance: {{ password_min_length_result.stdout }} "
+- debug:
+    msg: "Account lockout compliance: {{ account_lockout_attempts_result.stdout }} "
+- debug:
+    msg: "Audit logging compliance: {{ auditd_status_result.stdout }} "
+- debug:
+    msg: "File permissions compliance: {{ root_permissions_result.mode }} "
+- debug:
+    msg: "Firewall compliance: {{ ufw_ssh_status_result.stdout }} "
+- debug:
+    msg: "Service configuration compliance: {{ cups_status_result.stdout }} "
+- debug:
+    msg: "Software patching compliance: {{ patching_status_result.changed }} "
+- debug:
+    msg: "Hardening compliance (Root Login): {{ root_login_result.stdout }} "
+- debug:
+    msg: "Hardening compliance (Password Authentication): {{ password_authentication_result.stdout }} "
+- debug:
+    msg: "Hardening compliance (X11 Forwarding): {{ x11_forwarding_result.stdout }} "
+- debug:
+    msg: "Hardening compliance (TCP Forwarding): {{ tcp_forwarding_result.stdout }} "
+- debug:
+    msg: "Hardening compliance (SSH Banner): {{ ssh_banner_result.stdout }} "
+- debug:
+    msg: "Hardening compliance (Allowed Users): {{ allowed_users_result.stdout }} " 

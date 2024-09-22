@@ -1,0 +1,57 @@
+password_min_length: 12
+password_max_age: 90
+password_min_age: 14
+account_lockout_attempts: 5
+account_lockout_duration: 300
+allowed_users: "ubuntu"
+sysctl_params:
+  kernel.sysrq: 0
+  kernel.randomize_va_space: 2
+  kernel.core_pattern: "/var/crash/%e-%p-%t"
+  kernel.panic_on_oops: 1
+  vm.dirty_background_ratio: 10
+  vm.dirty_ratio: 20
+  vm.swappiness: 10
+  fs.file-max: 65536
+  net.ipv4.tcp_syncookies: 1
+  net.ipv4.tcp_max_syn_backlog: 1024
+  net.ipv4.tcp_tw_reuse: 1
+  net.ipv4.tcp_timestamps: 1
+  net.ipv4.tcp_sack: 1
+  net.ipv4.tcp_window_scaling: 1
+  net.ipv4.tcp_fastopen: 1
+  net.ipv4.tcp_synack_retries: 2
+  net.ipv4.tcp_retries1: 3
+  net.ipv4.tcp_retries2: 7
+  net.ipv4.tcp_keepalive_time: 7200
+  net.ipv4.tcp_keepalive_intvl: 75
+  net.ipv4.tcp_keepalive_probes: 9
+  net.ipv4.tcp_fin_timeout: 60
+  net.ipv4.tcp_mem: "8192 16384 32768"
+  net.ipv4.tcp_rmem: "4096 87380 16777216"
+  net.ipv4.tcp_wmem: "4096 16384 16777216"
+  net.ipv4.tcp_congestion_control: "reno"
+  net.ipv4.conf.all.rp_filter: 1
+  net.ipv4.conf.all.accept_source_route: 0
+  net.ipv4.conf.all.log_martians: 1
+  net.ipv4.conf.all.send_redirects: 0
+  net.ipv4.conf.all.accept_redirects: 0
+  net.ipv4.conf.default.accept_redirects: 0
+  net.ipv4.conf.all.proxy_arp: 0
+  net.ipv4.conf.all.forwarding: 0
+  net.ipv4.ip_forward: 0
+  net.ipv4.conf.all.accept_local: 0
+  net.ipv4.conf.default.accept_local: 0
+  net.ipv4.conf.all.secure_redirects: 0
+  net.ipv4.conf.all.neigh.default.gc_thresh1: 128
+  net.ipv4.conf.all.neigh.default.gc_thresh2: 512
+  net.ipv4.conf.all.neigh.default.gc_thresh3: 1024
+  net.ipv4.conf.all.neigh.default.gc_stale_time: 1200
+  net.ipv4.conf.all.neigh.default.app_solicit: 0
+  net.ipv4.conf.all.neigh.default.proxy_delay: 300
+  net.ipv4.neigh.default.gc_thresh1: 128
+  net.ipv4.neigh.default.gc_thresh2: 512
+  net.ipv4.neigh.default.gc_thresh3: 1024
+  net.ipv4.neigh.default.gc_stale_time: 1200
+  net.ipv4.neigh.default.app_solicit: 0
+  net.ipv4.neigh.default.proxy_delay: 300 

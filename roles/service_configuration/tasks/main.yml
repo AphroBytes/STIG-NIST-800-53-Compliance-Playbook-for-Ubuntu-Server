@@ -1,0 +1,11 @@
+- name: Disable unnecessary services
+  service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+  with_items:
+    - cups
+    - bluetooth
+    - avahi-daemon
+    - sshd-config
+    - apache2 

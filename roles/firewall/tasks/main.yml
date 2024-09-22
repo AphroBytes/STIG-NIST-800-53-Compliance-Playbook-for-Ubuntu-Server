@@ -1,0 +1,21 @@
+- name: Install ufw
+  apt:
+    name: ufw
+    state: present
+- name: Enable ufw
+  service:
+    name: ufw
+    state: started
+    enabled: yes
+- name: Allow SSH access
+  ufw:
+    rule: allow
+    port: 22
+    proto: tcp
+    direction: incoming
+- name: Allow HTTP access
+  ufw:
+    rule: allow
+    port: 80
+    proto: tcp
+    direction: incoming 

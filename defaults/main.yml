@@ -1,0 +1,2 @@
+# This is a default value that can be overridden in a vars file.
+password_min_length: 12 

@@ -1,0 +1,14 @@
+- name: Install auditd package
+  apt:
+    name: auditd
+    state: present
+- name: Configure auditd rules
+  copy:
+    src: auditd.rules
+    dest: /etc/audit/audit.rules
+    mode: 0644
+- name: Enable auditd service
+  service:
+    name: auditd
+    state: started
+    enabled: yes 

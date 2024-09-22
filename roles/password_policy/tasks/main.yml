@@ -1,0 +1,18 @@
+- name: Configure password complexity requirements
+  lineinfile:
+    path: /etc/login.defs
+    line: "PASS_MIN_LEN {{ password_min_length }}"
+    create: yes
+    state: present
+- name: Configure password expiry
+  lineinfile:
+    path: /etc/login.defs
+    line: "PASS_MAX_DAYS {{ password_max_age }}"
+    create: yes
+    state: present
+- name: Configure password history
+  lineinfile:
+    path: /etc/login.defs
+    line: "PASS_MIN_DAYS {{ password_min_age }}"
+    create: yes
+    state: present 

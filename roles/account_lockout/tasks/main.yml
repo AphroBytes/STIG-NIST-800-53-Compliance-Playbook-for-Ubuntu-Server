@@ -1,0 +1,12 @@
+- name: Set maximum login attempts
+  lineinfile:
+    path: /etc/security/limits.conf
+    line: "root soft -login {{ account_lockout_attempts }}"
+    create: yes
+    state: present
+- name: Set lockout duration
+  lineinfile:
+    path: /etc/security/limits.conf
+    line: "root hard -login {{ account_lockout_duration }} "
+    create: yes
+    state: present 

@@ -1,0 +1,46 @@
+- name: Disable root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "PermitRootLogin no"
+    create: yes
+    state: present
+- name: Disable password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "PasswordAuthentication no"
+    create: yes
+    state: present
+- name: Disable X11 forwarding
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "X11Forwarding no"
+    create: yes
+    state: present
+- name: Disable TCP forwarding
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "AllowTcpForwarding no"
+    create: yes
+    state: present
+- name: Disable shell access for root
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "AllowUsers {{ allowed_users }}"
+    create: yes
+    state: present
+- name: Enable SSH banner
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: "Banner /etc/issue.net"
+    create: yes
+    state: present
+- name: Configure SSH banner
+  copy:
+    src: ssh_banner
+    dest: /etc/issue.net
+    mode: 0644
+- name: Configure sysctl parameters
+  sysctl:
+    name: "{{ item }}"
+    value: "{{ sysctl_params[item] }}"
+  with_items: "{{ sysctl_params.keys() }}" 
